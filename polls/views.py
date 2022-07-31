@@ -8,12 +8,12 @@ def index(request):
 
 
 def detail(request, question_id):
-    return HttpResponse("This is the detail view of the question: $s" % question_id)
+    return HttpResponse("This is the detail view of the question: " + str(question_id))
 
 
 def results(request, question_id):
-    return HttpResponse("This is the results view of the question: $s" % question_id)
+    return HttpResponse("This is the results view of the question: " + str(question_id))
 
 
 def vote(request, question_id):
-    return HttpResponse("Vote on question: $s" % question_id)
+    return HttpResponse("Vote on question:" + str(question_id))
