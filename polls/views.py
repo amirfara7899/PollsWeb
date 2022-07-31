@@ -1,10 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-
 # Create your views here.
+from .models import Question
+
+
 def index(request):
-    return HttpResponse("This is the index page.")
+    latest_questions = Question.objects.order_by('-pub_date')[:5]
+    output = ", ".join(q.question_text for q in latest_questions)
+    return HttpResponse(output)
 
 
 def detail(request, question_id):
