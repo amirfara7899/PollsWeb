@@ -10,7 +10,8 @@ def index(request):
 
 
 def detail(request, question_id):
-    return HttpResponse("This is the detail view of the question: " + str(question_id))
+    question = Question.objects.get(pk=question_id)
+    return render(request, 'polls/detail.html', {'question': question})
 
 
 def results(request, question_id):
